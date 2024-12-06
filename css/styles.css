@@ -172,7 +172,7 @@ button.deleteBtn {
 }
 
 
-.col-description { width: 30%; } /* For larger columns */
+.col-description { width: 25%; } /* For larger columns */
 .col-client { width: 15%; } /* For larger columns */
 .col-date { width: 9%;}
 .col-montant { width: 9%;}
@@ -183,10 +183,20 @@ button.deleteBtn {
     font-size: 13px;
 }
 
+td.refused {
+    color: red;
+    font-weight: 500;
+}
 
+td.accepted {
+    color: limegreen;
+    font-weight: 500;
+}
 
-
-
+td.waiting {
+    color: cornflowerblue;
+    font-weight: 500;
+}
 
 
 
