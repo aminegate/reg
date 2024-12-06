@@ -40,6 +40,15 @@ $("#show-sidebar").click(function() {
         }
     });
 })(jQuery);
+    
+    
+    (function ($) {
+    $('#valider').on('click', function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        window.location.href = 'saisie.html'; // Redirect to saisie.html
+    });
+})(jQuery);
+
 
 (function() {
     const today = new Date();
