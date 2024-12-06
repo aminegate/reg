@@ -147,6 +147,7 @@ $("#show-sidebar").click(function() {
     
     
      $("#valider").click(function(){
+          event.preventDefault(); // Prevent form submission
     $(".form-section-two").slideDown("slow");
   });
 
