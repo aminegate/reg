@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saisie Paquet Règlement</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- font - fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">CAPRAM</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="images/profile.png" alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Nom
+                            <strong>Prénom</strong>
+                        </span>
+                        <span class="user-role">Représentant</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Navigation</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="saisie-paquet-reglement.html">
+                                <i class="fa-solid fa-file-contract"></i>
+                                <span>Saisie Paquet Règlement</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-file-contract"></i>
+                                <span>Liste des Réglements</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa-solid fa-list"></i>
+                                <span>Liste des Paquets de Règlement</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-power-off"></i>
+                </a>
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <h1>Saisie Paquet Règlement</h1>
+                </div>
+
+                <div class="form-section-one">
+                    <form action="">
+                        <div class="packetNumberWrapper">
+                            <label for="packetNumber">Numero du Paquet</label>
+                            <input type="text" value="#A00001" readonly / name="packetNumber" id="numeroPaquet">
+                        </div>
+
+                        <div class="packetDateWrapper">
+                            <label for="packetDate">Date du Paquet</label>
+                            <input type="date" id="packetDate" name="packetDate">
+                        </div>
+                        <input type="submit" value="valider" id="valider">
+                    </form>
+                </div>
+
+                <div class="form-section-two">
+                    <form action="">
+
+                        <div class="clientWrapper">
+                            <label for="clientName">Client</label>
+                            <input list="" required="" autocomplete="false" id="clientNameInput" class="" placeholder="Sélectionnez un client">
+                            <datalist id="clientNameList">
+                                <option data-value="" value="one">client 1</option>
+                                <option data-value="" value="two">client 2</option>
+                                <option data-value="" value="three">client 3</option>
+                                <option data-value="" value="four">client 4</option>
+                                <option data-value="" value="five">client 5</option>
+                                <option data-value="" value="six">client 6</option>
+                            </datalist>
+                        </div>
+
+                        <div class="modeWrapper">
+                            <label for="mode">Mode de réglement</label>
+
+                            <select name="mode" id="modeDeReg">
+                                <option value="especes">Paiement en espèces</option>
+                                <option value="cheque">Paiement par chèque</option>
+                                <option value="virement">Virement bancaire</option>
+
+                            </select>
+                        </div>
+
+
+
+                        <div class="montantWrapper">
+                            <label for="montant">Montant</label>
+                            <input type="text" id="montantInput">
+                        </div>
+                        
+                        
+                        <div class="dueDateWrapper">
+                            <label for="dueDate">Date D'échéance</label>
+                            <input type="date" id="dueDate" name="dueDate">
+                        </div>
+                        <div class="textAreaWrapper">
+                            <label for="description">Description</label>
+                            <textarea name="" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                     <input type="submit" value="Ajouter" id="ajouter">
+                    </form>
+                </div>
+
+
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
