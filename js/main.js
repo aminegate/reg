@@ -30,11 +30,22 @@ $("#show-sidebar").click(function() {
 
 
     
-(function ($) {
-    // Highlight the span inside the current page's anchor tag
+(function ($) { 
+    // Get the current page name
     var currentPage = window.location.pathname.split("/").pop(); 
-    $('.sidebar-dropdown a').each(function () {
-        if ($(this).attr('href') === currentPage) {
+
+    $('.sidebar-dropdown a').each(function (index) {
+        var link = $(this).attr('href');
+
+        // Check for index.html or saisie.html and highlight the first instance
+        if ((currentPage === 'index.html' || currentPage === 'saisie.html') && index === 0) {
+            $(this).find('span').addClass('active-span'); 
+            $(this).find('i').addClass('active-icon'); 
+            return false; // Stop further iteration after highlighting the first
+        }
+
+        // Highlight the current page in other cases
+        if (link === currentPage) {
             $(this).find('span').addClass('active-span'); 
             $(this).find('i').addClass('active-icon'); 
         }
@@ -159,5 +170,19 @@ $("#show-sidebar").click(function() {
           event.preventDefault(); // Prevent form submission
     $(".form-section-two").slideDown("slow");
   });
+    
+    
+    
+    
+    
+    (function ($) {
+    $('.tw-toggle').each(function (index) {
+        $(this).find('input[type="radio"]').attr('name', 'toggle' + index);
+    });
+})(jQuery);
+    
+    
+
+    
 
 });
