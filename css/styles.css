@@ -317,93 +317,60 @@ td.waiting {
   100%  { transform: translateX(0)}
 }
 
+.toggleContainer {
+   position: relative;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   width: fit-content;
+   border: 3px solid #F7943D;
+   border-radius: 20px;
+   background: #F7943D;
+   font-weight: bold;
+   color: #343434;
+   cursor: pointer;
+ }
+ .toggleContainer::before {
+   content: '';
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   left: 0%;
+   border-radius:20px;
+   background: white;
+   transition: all 0.3s;
+ }
+ .toggleCheckbox:checked + .toggleContainer::before {
+    left: 50%;
+ }
+ .toggleContainer div {
+   padding: 6px;
+   text-align: center;
+   z-index: 1;
+ }
+ .toggleCheckbox {
+   display: none;
+ }
+ .toggleCheckbox:checked + .toggleContainer div:first-child{
+   color: white;
+   transition: color 0.3s;
+ }
+ .toggleCheckbox:checked + .toggleContainer div:last-child{
+   color: #343434;
+   transition: color 0.3s;
+ }
+ .toggleCheckbox + .toggleContainer div:first-child{
+   color: #343434;
+   transition: color 0.3s;
+ }
+ .toggleCheckbox + .toggleContainer div:last-child{
+   color: white;
+   transition: color 0.3s;
+ }
 
-
-
-
-/* Adjust layout to have the label above the toggle switch */
-.toggle {
-  display: flex;
-  flex-direction: column; /* Stack the label and switch vertically */
-  align-items: center; /* Center align the content */
-  justify-content: center; /* Center align the content */
-  margin-bottom: 10px; /* Optional: add space between the toggle items */
+.toggleCheckbox:checked + .toggleContainer {
+    background: #56c080; /* Green color for 'Valider' */
+    border-color: #56c080; /* Green border */
 }
-
-/* Styling for the toggle switch */
-.toggle-switch {
-  display: inline-block;
-  background: #ccc;
-  border-radius: 16px;
-  width: 58px;
-  height: 32px;
-  position: relative;
-  transition: background 0.25s;
-}
-
-/* Default color for the switches when unchecked */
-.toggle-switch.accepted-bg {
-  background: lightgrey;
-}
-.toggle-switch.waiting-bg {
-  background: lightgrey;
-}
-.toggle-switch.refused-bg {
-  background: lightgrey;
-}
-
-/* Change background when radio button is checked */
-.toggle-checkbox:checked ~ .toggle-switch.accepted-bg {
-  background: #56c080; /* Green */
-}
-.toggle-checkbox:checked ~ .toggle-switch.waiting-bg {
-  background: #f0ad4e; /* Orange */
-}
-.toggle-checkbox:checked ~ .toggle-switch.refused-bg {
-  background: #d9534f; /* Red */
-}
-
-/* Styling for the slider knob */
-.toggle-switch:before {
-  content: "";
-  display: block;
-  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  transition: left 0.25s;
-}
-
-/* Hover effect on the toggle switch */
-.toggle:hover .toggle-switch:before {
-  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
-
-/* Move the knob when checked */
-.toggle-checkbox:checked ~ .toggle-switch:before {
-  left: 30px;
-}
-
-/* Hide the checkbox itself */
-.toggle-checkbox {
-  position: absolute;
-  visibility: hidden;
-}
-
-/* Position the label above the toggle switch */
-.toggle-label {
-  margin-bottom: 5px; /* Space between label and toggle switch */
-  position: relative;
-  top: 0; /* Reset any vertical offset */
-}
-
-
-
 
 @keyframes swing {
   0% {
