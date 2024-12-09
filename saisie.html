@@ -52,14 +52,14 @@
                         <li class="header-menu">
                             <span>Navigation</span>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li class="sidebar-dropdown highlight">
                             <a href="index.html">
                                 <i class="fa-solid fa-file-contract"></i>
                                 <span>Saisie Paquet Règlement</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a href="list.html">
                                 <i class="fa-solid fa-list"></i>
                                 <span>Liste des Paquets de Règlement</span>
                             </a>
@@ -82,13 +82,14 @@
         <main class="page-content">
             <div class="container-fluid">
                 <div class="page-title">
-                    <h1>Saisie Paquet Règlement</h1>
+                    <h1>Formulaire de Saisie – Paquet de Règlement</h1>
                 </div>
 
 
                 <div class="form-section-two">
                     <form action="#">
-
+                        <div class="row">
+                        <div class="col-lg-6">
                         <div class="clientWrapper">
                             <label for="clientName">Client</label>
                             <input list="" required="" autocomplete="false" id="clientNameInput" class="" placeholder="Sélectionnez un client">
@@ -101,7 +102,8 @@
                                 <option data-value="" value="client 6">client 6</option>
                             </datalist>
                         </div>
-
+                        </div>
+                        <div class="col-lg-6">
                         <div class="modeWrapper">
                             <label for="mode">Mode de réglement</label>
 
@@ -112,25 +114,34 @@
 
                             </select>
                         </div>
+                        </div>
 
-
-
+                        <div class="col-lg-6">
                         <div class="montantWrapper">
                             <label for="montant">Montant</label>
                             <input type="text" id="montantInput">
                         </div>
-                        
+                        </div>
+                        <div class="col-lg-6">
                         
                         <div class="dueDateWrapper">
                             <label for="dueDate">Date D'échéance</label>
                             <input type="date" id="dueDate" name="dueDate">
                         </div>
+                        
+                        </div>
+                        
+                        <div class="col-lg-12">
                         <div class="textAreaWrapper">
                             <label for="description">Description</label>
                             <textarea name="" id="description" cols="30" rows="10"></textarea>
                         </div>
+                        </div>
+                                <div class="col-lg-12">
                      <input type="submit" value="Ajouter" id="ajouter">
-                    </form>
+                     </div>
+                     </div>
+                    </form>    
                 </div>
                 
            
@@ -162,7 +173,7 @@
         Paiement par chèque
         </td>
         <td data-th="Montant">
-          7777.00 DH
+          7777.00 <span class="currency">DH</span>
         </td>
         <td data-th="Date D'échéance">
            01/01/2025
@@ -191,7 +202,7 @@
         Paiement par chèque
         </td>
         <td data-th="Montant">
-          7777.00 DH
+          7777.00 <span class="currency">DH</span>
         </td>
         <td data-th="Date D'échéance">
            01/01/2025
@@ -221,7 +232,7 @@
         Paiement par chèque
         </td>
         <td data-th="Montant">
-          7777.00 DH
+          7777.00 <span class="currency">DH</span>
         </td>
         <td data-th="Date D'échéance">
            01/01/2025
@@ -251,7 +262,7 @@
         Paiement par chèque
         </td>
         <td data-th="Montant">
-          7777.00 DH
+          7777.00 <span class="currency">DH</span>
         </td>
         <td data-th="Date D'échéance">
            01/01/2025

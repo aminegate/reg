@@ -52,14 +52,14 @@
                         <li class="header-menu">
                             <span>Navigation</span>
                         </li>
-                        <li class="sidebar-dropdown">
+                        <li class="sidebar-dropdown highlight">
                             <a href="index.html">
                                 <i class="fa-solid fa-file-contract"></i>
                                 <span>Saisie Paquet Règlement</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a href="list.html">
                                 <i class="fa-solid fa-list"></i>
                                 <span>Liste des Paquets de Règlement</span>
                             </a>
@@ -82,21 +82,28 @@
         <main class="page-content">
             <div class="container-fluid">
                 <div class="page-title">
-                    <h1>Saisie Paquet Règlement</h1>
+                    <h1>Formulaire de Saisie – Paquet de Règlement</h1>
                 </div>
 
                 <div class="form-section-one">
                     <form action="#">
-                        <div class="packetNumberWrapper">
-                            <label for="packetNumber">Numero du Paquet</label>
-                            <input type="text" value="#A00001" readonly / name="packetNumber" id="numeroPaquet">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="packetNumberWrapper">
+                                    <label for="packetNumber">Numero du Paquet</label>
+                                    <input type="text" value="#A00001" readonly / name="packetNumber" id="numeroPaquet">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="packetDateWrapper">
+                                    <label for="packetDate">Date du Paquet</label>
+                                    <input type="date" id="packetDate" name="packetDate">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="submit" value="valider" id="valider">
+                            </div>
                         </div>
-
-                        <div class="packetDateWrapper">
-                            <label for="packetDate">Date du Paquet</label>
-                            <input type="date" id="packetDate" name="packetDate">
-                        </div>
-                        <input type="submit" value="valider" id="valider">
                     </form>
                 </div>
 
