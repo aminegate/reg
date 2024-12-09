@@ -175,11 +175,7 @@ $("#show-sidebar").click(function() {
     
     
     
-    (function ($) {
-    $('.tw-toggle').each(function (index) {
-        $(this).find('input[type="radio"]').attr('name', 'toggle' + index);
-    });
-})(jQuery);
+
     
     
 
