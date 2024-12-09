@@ -174,7 +174,13 @@ $("#show-sidebar").click(function() {
     
     
     
-    
+(function() {
+  // When a label is clicked, toggle the associated checkbox
+  $('.toggleContainer').on('click', function() {
+    var checkbox = $(this).prev('.toggleCheckbox');
+    checkbox.prop('checked', !checkbox.prop('checked'));
+  });
+})();
 
     
     
