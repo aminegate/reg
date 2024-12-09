@@ -183,7 +183,43 @@ $("#show-sidebar").click(function() {
 })();
 
     
-    
+(function ($) {
+    // Function to open the modal
+    function openModal() {
+        $(".modal-overlay").fadeIn();
+        $("#confirmationModal").fadeIn();
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        $(".modal-overlay").fadeOut();
+        $("#confirmationModal").fadeOut();
+    }
+
+    // Trigger modal (example: button click to open modal)
+    $(".deleteBtn").on("click", function () {
+        openModal();
+    });
+
+    // Handle 'Oui' button click
+    $("#btnOui").on("click", function () {
+
+        closeModal();
+    });
+
+    // Handle 'No' button click
+    $("#btnNo").on("click", function () {
+
+        closeModal();
+    });
+
+    // Close modal when clicking on overlay
+    $(".modal-overlay").on("click", function () {
+        closeModal();
+    });
+})(jQuery);
+
+
 
     
 
