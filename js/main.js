@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     /******************************* Side-bar Animation *****************************************/
     
-    // Handles the toggling of the sidebar menu
+    // dropdown menu
     $(".sidebar-dropdown > a").click(function () {
         $(".sidebar-submenu").slideUp(200);
         if ($(this).parent().hasClass("active")) {
@@ -15,15 +15,24 @@ $(document).ready(function () {
         }
     });
 
-    // Close sidebar
+   (function () {
+    // Close sidebar on button click
     $("#close-sidebar").click(function () {
         $(".page-wrapper").removeClass("toggled");
     });
 
-    // Open sidebar
+    // Open sidebar on button click
     $("#show-sidebar").click(function () {
         $(".page-wrapper").addClass("toggled");
     });
+
+    // Automatically close sidebar when screen width is <= 1024px
+    $(window).resize(function () {
+        if ($(window).width() <= 1024) {
+            $(".page-wrapper").removeClass("toggled");
+        }
+    }).trigger('resize'); // Trigger resize to check on page load
+     })();
 
     /******************************* Auto-fill Current Date *****************************************/
     
