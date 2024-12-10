@@ -197,7 +197,7 @@ $("#show-sidebar").click(function() {
     }
 
     // Trigger modal (example: button click to open modal)
-    $(".deleteBtn").on("click", function () {
+    $(".closeBtn").on("click", function () {
         openModal();
     });
 
@@ -216,6 +216,32 @@ $("#show-sidebar").click(function() {
     // Close modal when clicking on overlay
     $(".modal-overlay").on("click", function () {
         closeModal();
+    });
+})(jQuery);
+
+
+(function($) {
+    const maxLength = 115;
+
+    $('textarea').on('input', function() {
+        const text = $(this).val();
+        if (text.length > maxLength) {
+            $(this).val(text.substring(0, maxLength));
+        }
+    });
+})(jQuery);
+    
+    
+(function($) {
+    var gradients = [
+        'linear-gradient(90deg, rgba(247, 148, 61, 1) 50%, rgba(255, 187, 128, 1) 100%)', // Orange gradient
+        'linear-gradient(90deg, #31353D 50%, rgba(0, 0, 0, 0.8) 100%)'                 // Black gradient with #31353D
+    ];
+
+    $('.reglementBoxHeader').each(function(index) {
+        // Use modulo to alternate between orange and black gradients for each element
+        var gradientIndex = index % 2; // Alternates 0 (orange) and 1 (black)
+        $(this).css('background', gradients[gradientIndex]);
     });
 })(jQuery);
 
