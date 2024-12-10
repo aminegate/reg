@@ -1,241 +1,195 @@
-$(document).ready(function() {
-$(".sidebar-dropdown > a").click(function() {
-  $(".sidebar-submenu").slideUp(200);
-  if (
-    $(this)
-      .parent()
-      .hasClass("active")
-  ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .parent()
-      .removeClass("active");
-  } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-      .next(".sidebar-submenu")
-      .slideDown(200);
-    $(this)
-      .parent()
-      .addClass("active");
-  }
-});
+$(document).ready(function () {
 
-$("#close-sidebar").click(function() {
-  $(".page-wrapper").removeClass("toggled");
-});
-$("#show-sidebar").click(function() {
-  $(".page-wrapper").addClass("toggled");
-});
-
-
+    /******************************* Side-bar Animation *****************************************/
     
-(function ($) { 
-    // Get the current page name
-    var currentPage = window.location.pathname.split("/").pop(); 
-
-    $('.sidebar-dropdown a').each(function (index) {
-        var link = $(this).attr('href');
-
-        // Check for index.html or saisie.html and highlight the first instance
-        if ((currentPage === 'index.html' || currentPage === 'saisie.html') && index === 0) {
-            $(this).find('span').addClass('active-span'); 
-            $(this).find('i').addClass('active-icon'); 
-            return false; // Stop further iteration after highlighting the first
-        }
-
-        // Highlight the current page in other cases
-        if (link === currentPage) {
-            $(this).find('span').addClass('active-span'); 
-            $(this).find('i').addClass('active-icon'); 
-        }
-    });
-})(jQuery);
-    
-    
-    (function ($) {
-    $('#valider').on('click', function (e) {
-        e.preventDefault(); // Prevent the default form submission
-        window.location.href = 'saisie.html'; // Redirect to saisie.html
-    });
-})(jQuery);
-
-
-(function() {
-    const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0]; // Formats the date as YYYY-MM-DD
-    $('#packetDate').val(formattedDate); 
-     $('#dueDate').val(formattedDate); 
-})();
-    
-    
-    
-    (function() {
-  var inputs = ['#clientNameInput']; 
-  var datalistes = ['#clientNameList']; 
-
-  inputs.forEach(function(inputSelector, index) {
-    var input = $(inputSelector);
-    var dataliste = $(datalistes[index]);
-
-    input.on('focus', function() {
-      dataliste.css('display', 'block'); // Show the datalist when the input is focused
-    });
-
-    // Handle option click
-    dataliste.find('option').on('click', function() {
-      input.val($(this).val()); // Set the input value to the clicked option
-      dataliste.css('display', 'none'); // Hide the options after selection
-      input.css('border-radius', '5px'); // Reset border radius
-    });
-
-    input.on('input', function() {
-      var text = input.val().toUpperCase(); // Get the input value
-      var hasVisibleOptions = false; // Track if there are visible options
-
-      // Iterate through options and show/hide based on input
-      dataliste.find('option').each(function() {
-        if ($(this).val().toUpperCase().indexOf(text) > -1) {
-          $(this).css('display', 'block'); // Show matching option
-          hasVisibleOptions = true; // At least one option is visible
+    // Handles the toggling of the sidebar menu
+    $(".sidebar-dropdown > a").click(function () {
+        $(".sidebar-submenu").slideUp(200);
+        if ($(this).parent().hasClass("active")) {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).parent().removeClass("active");
         } else {
-          $(this).css('display', 'none'); // Hide non-matching option
+            $(".sidebar-dropdown").removeClass("active");
+            $(this).next(".sidebar-submenu").slideDown(200);
+            $(this).parent().addClass("active");
         }
-      });
-
-      // Show or hide the dropdown based on visible options
-      if (hasVisibleOptions) {
-        dataliste.css('display', 'block'); // Show dropdown if matches
-      } else {
-        dataliste.css('display', 'none'); // Hide if no matches
-      }
     });
 
-    var currentFocus = -1; // Track the current focused option
-    input.on('keydown', function(e) {
-      var options = dataliste.find('option'); // Get all options in the datalist
-      
-      if (e.keyCode === 40) { // Down arrow
-        currentFocus++;
-        addActive(options); // Highlight the next option
-      } else if (e.keyCode === 38) { // Up arrow
-        currentFocus--;
-        addActive(options); // Highlight the previous option
-      } else if (e.keyCode === 13) { // Enter key
-        e.preventDefault();
-        if (currentFocus > -1) {
-          $(options[currentFocus]).click(); // Simulate a click on the active option
-        }
-      }
+    // Close sidebar
+    $("#close-sidebar").click(function () {
+        $(".page-wrapper").removeClass("toggled");
     });
 
-    function addActive(x) {
-      if (!x) return false; // Exit if no options
-      removeActive(x); // Remove active class from all
-      if (currentFocus >= x.length) currentFocus = 0; // Wrap to first option
-      if (currentFocus < 0) currentFocus = (x.length - 1); // Wrap to last option
-      $(x[currentFocus]).addClass('active'); // Add active class to current option
-    }
+    // Open sidebar
+    $("#show-sidebar").click(function () {
+        $(".page-wrapper").addClass("toggled");
+    });
 
-    function removeActive(x) {
-      $(x).removeClass('active'); // Remove active class from all options
-    }
-  });
+    /******************************* Auto-fill Current Date *****************************************/
+    
+    // Automatically set today's date in input fields with IDs #packetDate and #dueDate
+    (function () {
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0]; // Formats the date as YYYY-MM-DD
+        $('#dueDate').val(formattedDate);
+    })();
 
-  // Close datalist when clicking outside
-  $(document).on('click', function(event) {
-    var target = $(event.target);
-    // Check if the click is outside the input and datalists
-    if (!target.closest(inputs.join(',')).length && !target.closest(datalistes.join(',')).length) {
-      $(datalistes.join(',')).css('display', 'none'); // Hide all datalists
-      inputs.forEach(function(inputSelector) {
-        $(inputSelector).css('border-radius', '5px'); // Reset border radius for all inputs
-      });
-    }
-  });
-})();
+    /******************************* Datalist Autocomplete *****************************************/
     
+    // Custom autocomplete functionality for input and datalist
+    (function () {
+        var inputs = ['#clientNameInput'];
+        var datalistes = ['#clientNameList'];
+
+        inputs.forEach(function (inputSelector, index) {
+            var input = $(inputSelector);
+            var dataliste = $(datalistes[index]);
+
+            input.on('focus', function () {
+                dataliste.css('display', 'block');
+            });
+
+            // Handle option click
+            dataliste.find('option').on('click', function () {
+                input.val($(this).val());
+                dataliste.css('display', 'none');
+                input.css('border-radius', '5px');
+            });
+
+            input.on('input', function () {
+                var text = input.val().toUpperCase();
+                var hasVisibleOptions = false;
+
+                dataliste.find('option').each(function () {
+                    if ($(this).val().toUpperCase().indexOf(text) > -1) {
+                        $(this).css('display', 'block');
+                        hasVisibleOptions = true;
+                    } else {
+                        $(this).css('display', 'none');
+                    }
+                });
+
+                dataliste.css('display', hasVisibleOptions ? 'block' : 'none');
+            });
+
+            // Handle keyboard navigation
+            var currentFocus = -1;
+            input.on('keydown', function (e) {
+                var options = dataliste.find('option');
+
+                if (e.keyCode === 40) { // Down arrow
+                    currentFocus++;
+                    addActive(options);
+                } else if (e.keyCode === 38) { // Up arrow
+                    currentFocus--;
+                    addActive(options);
+                } else if (e.keyCode === 13) { // Enter key
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                        $(options[currentFocus]).click();
+                    }
+                }
+            });
+
+            function addActive(x) {
+                if (!x) return false;
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = x.length - 1;
+                $(x[currentFocus]).addClass('active');
+            }
+
+            function removeActive(x) {
+                $(x).removeClass('active');
+            }
+        });
+
+        // Close datalist on outside click
+        $(document).on('click', function (event) {
+            var target = $(event.target);
+            if (!target.closest(inputs.join(',')).length && !target.closest(datalistes.join(',')).length) {
+                $(datalistes.join(',')).css('display', 'none');
+                inputs.forEach(function (inputSelector) {
+                    $(inputSelector).css('border-radius', '5px');
+                });
+            }
+        });
+    })();
+
+    /******************************* Input Field Focus Styling *****************************************/
     
+    // Change border color on focus and revert on blur
     (function ($) {
-    $("select,textarea,input:not([type='submit'])").on("focus", function () {
-        $(this).css("border", "3px solid #f2d6a1");
-    }).on("blur", function () {
-        $(this).css("border", "");
-    });
-})(jQuery);
+        $("select,textarea,input:not([type='submit'])").on("focus", function () {
+            $(this).css("border", "3px solid #f2d6a1");
+        }).on("blur", function () {
+            $(this).css("border", "");
+        });
+    })(jQuery);
 
+    /******************************* Checkbox Toggling *****************************************/
     
+    // Toggle checkbox state on label click
+    (function () {
+        $('.toggleContainer').on('click', function () {
+            var checkbox = $(this).prev('.toggleCheckbox');
+            checkbox.prop('checked', !checkbox.prop('checked'));
+        });
+    })();
+
+    /******************************* Modal Control *****************************************/
     
-     $("#valider").click(function(){
-          event.preventDefault(); // Prevent form submission
-    $(".form-section-two").slideDown("slow");
-  });
+    // Handles opening and closing of modal dialogs
+    (function ($) {
+        function openModal() {
+            $(".modal-overlay").fadeIn();
+            $("#confirmationModal").fadeIn();
+        }
+
+        function closeModal() {
+            $(".modal-overlay").fadeOut();
+            $("#confirmationModal").fadeOut();
+        }
+
+        $(".closeBtn").on("click", function () {
+            openModal();
+        });
+
+        $("#btnOui").on("click", function () {
+            closeModal();
+        });
+
+        $("#btnNo").on("click", function () {
+            closeModal();
+        });
+
+        $(".modal-overlay").on("click", function () {
+            closeModal();
+        });
+    })(jQuery);
+
+    /******************************* Alternate Gradient Backgrounds *****************************************/
     
+    // Alternate orange and black gradients for specific headers
+    (function ($) {
+        var gradients = [
+            'linear-gradient(90deg, rgba(247, 148, 61, 1) 50%, rgba(255, 187, 128, 1) 100%)',
+            'linear-gradient(90deg, #31353D 50%, rgba(0, 0, 0, 0.8) 100%)'
+        ];
+
+        $('.reglementBoxHeader').each(function (index) {
+            var gradientIndex = index % 2;
+            $(this).css('background', gradients[gradientIndex]);
+        });
+    })(jQuery);
+
+    /******************************* Sidebar Custom Event *****************************************/
     
-    
-    
-(function() {
-  // When a label is clicked, toggle the associated checkbox
-  $('.toggleContainer').on('click', function() {
-    var checkbox = $(this).prev('.toggleCheckbox');
-    checkbox.prop('checked', !checkbox.prop('checked'));
-  });
-})();
-
-    
-(function ($) {
-    // Function to open the modal
-    function openModal() {
-        $(".modal-overlay").fadeIn();
-        $("#confirmationModal").fadeIn();
-    }
-
-    // Function to close the modal
-    function closeModal() {
-        $(".modal-overlay").fadeOut();
-        $("#confirmationModal").fadeOut();
-    }
-
-    // Trigger modal (example: button click to open modal)
-    $(".closeBtn").on("click", function () {
-        openModal();
-    });
-
-    // Handle 'Oui' button click
-    $("#btnOui").on("click", function () {
-
-        closeModal();
-    });
-
-    // Handle 'No' button click
-    $("#btnNo").on("click", function () {
-
-        closeModal();
-    });
-
-    // Close modal when clicking on overlay
-    $(".modal-overlay").on("click", function () {
-        closeModal();
-    });
-})(jQuery);
-
-
-    
-(function($) {
-    var gradients = [
-        'linear-gradient(90deg, rgba(247, 148, 61, 1) 50%, rgba(255, 187, 128, 1) 100%)', // Orange gradient
-        'linear-gradient(90deg, #31353D 50%, rgba(0, 0, 0, 0.8) 100%)'                 // Black gradient with #31353D
-    ];
-
-    $('.reglementBoxHeader').each(function(index) {
-        // Use modulo to alternate between orange and black gradients for each element
-        var gradientIndex = index % 2; // Alternates 0 (orange) and 1 (black)
-        $(this).css('background', gradients[gradientIndex]);
-    });
-})(jQuery);
-
-
-
-    
+    // Prevent scroll to top
+    (function ($) {
+        $('#show-sidebar').on('click', function (event) {
+            event.preventDefault();
+        });
+    })(jQuery);
 
 });
