@@ -58,6 +58,15 @@
                                 <span>Saisie Règlement</span>
                             </a>
                         </li>
+                        <li>
+ <div class="wrapper">
+     <div class="search-input">
+         <input type=" text" placeholder="Rechercher......">
+         <div class="icon"><i class=" fas fa-search"></i></div>
+     </div>
+</div>
+
+                        </li>
                     </ul>
                 </div>
                 <!-- sidebar-menu  -->
@@ -76,14 +85,14 @@
         <main class="page-content">
             <div class="container-fluid">
                 <div class="page-title">
-                    <h1>Formulaire de Saisie – Paquet de Règlement</h1>
+                    <h1>Formulaire de saisie de règlement</h1>
                 </div>
 
 
                 <div class="form-section-two">
                     <form action="#">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="clientWrapper">
                                     <label for="clientName">Client</label>
                                     <input list="" required="" autocomplete="false" id="clientNameInput" class="" placeholder="Sélectionnez un client">
@@ -97,7 +106,7 @@
                                     </datalist>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="modeWrapper">
                                     <label for="mode">Mode de réglement</label>
 
@@ -108,13 +117,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="montantWrapper">
                                     <label for="montant">Montant</label>
                                     <input type="text" id="montantInput" placeholder="Exemple : 399.00 DH">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 
                                 <div class="dueDateWrapper">
                                     <label for="dueDate">Date D'échéance</label>
@@ -122,16 +131,22 @@
                                 </div>
 
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="monthYearWrapper">
                                     <label for="bdaymonth">Relvée</label>
                                     <input type="month" id="bdaymonth" name="bdaymonth">
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="referenceWrapper">
+                                    <label for="referencetInput">Référence</label>
+                                       <input type="text" id="referencetInput" placeholder="Exemple : 1234567890">
+                                </div>
+                            </div>
                             <div class="col-lg-12">
                                 <div class="textAreaWrapper">
                                     <label for="description">Description</label>
-                                    <textarea name="" id="description" cols="30" rows="10" placeholder="Veuillez entrer jusqu'à 115 caractères uniquement."></textarea>
+                                    <textarea name="" id="description" cols="30" rows="10" placeholder="Veuillez entrer jusqu'à 115 caractères uniquement." maxlength="115"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -148,6 +163,8 @@
 
                   
                         <div class="row">
+                           
+                           
                             <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="reglementBoxWrapper">
 
@@ -180,7 +197,7 @@
                                     <div class="reglementTable">
                                         <table style="width:100%">
                                             <tr>
-                                                <th>Date du Paquet</th>
+                                                <th>Date du règlement</th>
                                                 <td>12/06/2024</td>
 
                                             </tr>
@@ -188,6 +205,10 @@
                                                 <th>Mode De Réglement</th>
                                                 <td>Paiement par chèque</td>
 
+                                            </tr>
+                                            <tr>
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
                                             </tr>
                                             <tr>
                                                 <th>Relvée</th>
@@ -264,7 +285,7 @@
                                     <div class="reglementTable">
                                         <table style="width:100%">
                                             <tr>
-                                                <th>Date du Paquet</th>
+                                                <th>Date du règlement</th>
                                                 <td>12/06/2024</td>
 
                                             </tr>
@@ -272,6 +293,10 @@
                                                 <th>Mode De Réglement</th>
                                                 <td>Paiement par chèque</td>
 
+                                            </tr>
+                                            <tr>
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
                                             </tr>
                                             <tr>
                                                 <th>Relvée</th>
@@ -348,7 +373,7 @@
                                     <div class="reglementTable">
                                         <table style="width:100%">
                                             <tr>
-                                                <th>Date du Paquet</th>
+                                                <th>Date du règlement</th>
                                                 <td>12/06/2024</td>
 
                                             </tr>
@@ -358,88 +383,8 @@
 
                                             </tr>
                                             <tr>
-                                                <th>Relvée</th>
-                                                <td>12/2024</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Montant</th>
-                                                <td>7777.00 DH</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Date D'échéance</th>
-                                                <td>01/01/2025</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Statut</th>
-                                                <td><span class="waiting" id="">En Attente</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Description</th>
-                                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit id, iste fuga optio placeat, sint eum laudantium!</td>
-                                            </tr>
-                                            <tr class="lastTr">
-                                                <td colspan="2">
-                                                    <!-- colspan="2" to span across both columns -->
-                                                    <div class="action">
-                                                        <form action="" id="">
-                                                            <div class="checkbox-wrapper">
-                                                                <input type="checkbox" class="toggleCheckbox" />
-                                                                <label class="toggleContainer">
-                                                                    <div><i class="fa-solid fa-eye-slash"></i></div>
-                                                                    <div><i class="fa-solid fa-eye"></i></div>
-                                                                </label>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    
-                                    
-                                    
-                                </div>
-                            </div>
-                               <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="reglementBoxWrapper">
-
-
-                                    <div class="reglementBoxHeader">
-                                        <div class="closeBox">
-                                            <button class="closeBtn"><i class="fa-solid fa-rectangle-xmark"></i></button>
-                                            <div class="modal-overlay"></div>
-                                            <div id="confirmationModal" class="modal">
-                                                <div class="modal-content">
-                                                    <p>Voulez-vous continuer ?</p>
-                                                    <button id="btnOui">Oui</button>
-                                                    <button id="btnNo">No</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="reglementFullName">Zad Elkhair Abd Eljebar</h2>
-                                        <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" y="0px">
-                                            <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                                            <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                                            <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                                            <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#f5f5f5"></path>
-                                        </svg>
-                                    </div>
-
-
-
-
-
-                                    <div class="reglementTable">
-                                        <table style="width:100%">
-                                            <tr>
-                                                <th>Date du Paquet</th>
-                                                <td>12/06/2024</td>
-
-                                            </tr>
-                                            <tr>
-                                                <th>Mode De Réglement</th>
-                                                <td>Paiement par chèque</td>
-
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
                                             </tr>
                                             <tr>
                                                 <th>Relvée</th>
@@ -516,7 +461,7 @@
                                     <div class="reglementTable">
                                         <table style="width:100%">
                                             <tr>
-                                                <th>Date du Paquet</th>
+                                                <th>Date du règlement</th>
                                                 <td>12/06/2024</td>
 
                                             </tr>
@@ -524,6 +469,98 @@
                                                 <th>Mode De Réglement</th>
                                                 <td>Paiement par chèque</td>
 
+                                            </tr>
+                                            <tr>
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Relvée</th>
+                                                <td>12/2024</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Montant</th>
+                                                <td>7777.00 DH</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Date D'échéance</th>
+                                                <td>01/01/2025</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Statut</th>
+                                                <td><span class="waiting" id="">En Attente</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Description</th>
+                                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit id, iste fuga optio placeat, sint eum laudantium!</td>
+                                            </tr>
+                                            <tr class="lastTr">
+                                                <td colspan="2">
+                                                    <!-- colspan="2" to span across both columns -->
+                                                    <div class="action">
+                                                        <form action="" id="">
+                                                            <div class="checkbox-wrapper">
+                                                                <input type="checkbox" class="toggleCheckbox" />
+                                                                <label class="toggleContainer">
+                                                                    <div><i class="fa-solid fa-eye-slash"></i></div>
+                                                                    <div><i class="fa-solid fa-eye"></i></div>
+                                                                </label>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="reglementBoxWrapper">
+
+
+                                    <div class="reglementBoxHeader">
+                                        <div class="closeBox">
+                                            <button class="closeBtn"><i class="fa-solid fa-rectangle-xmark"></i></button>
+                                            <div class="modal-overlay"></div>
+                                            <div id="confirmationModal" class="modal">
+                                                <div class="modal-content">
+                                                    <p>Voulez-vous continuer ?</p>
+                                                    <button id="btnOui">Oui</button>
+                                                    <button id="btnNo">No</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="reglementFullName">Zad Elkhair Abd Eljebar</h2>
+                                        <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" y="0px">
+                                            <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
+                                            <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
+                                            <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
+                                            <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#f5f5f5"></path>
+                                        </svg>
+                                    </div>
+
+
+
+
+
+                                    <div class="reglementTable">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <th>Date du règlement</th>
+                                                <td>12/06/2024</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th>Mode De Réglement</th>
+                                                <td>Paiement par chèque</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
                                             </tr>
                                             <tr>
                                                 <th>Relvée</th>
@@ -600,7 +637,7 @@
                                     <div class="reglementTable">
                                         <table style="width:100%">
                                             <tr>
-                                                <th>Date du Paquet</th>
+                                                <th>Date du règlement</th>
                                                 <td>12/06/2024</td>
 
                                             </tr>
@@ -608,6 +645,10 @@
                                                 <th>Mode De Réglement</th>
                                                 <td>Paiement par chèque</td>
 
+                                            </tr>
+                                            <tr>
+                                                <th>Référence</th>
+                                                <td>5874236948</td>
                                             </tr>
                                             <tr>
                                                 <th>Relvée</th>
@@ -652,6 +693,7 @@
                                     
                                 </div>
                             </div>
+                            
                           <div class="pagination p12">
       <ul>
         <a href="#"><li>Précédent</li></a>
@@ -664,6 +706,7 @@
         <a href="#"><li>Suivant</li></a>
       </ul>
     </div>
+                       
                         </div>
                 </div>
 
