@@ -220,17 +220,6 @@ $("#show-sidebar").click(function() {
 })(jQuery);
 
 
-(function($) {
-    const maxLength = 115;
-
-    $('textarea').on('input', function() {
-        const text = $(this).val();
-        if (text.length > maxLength) {
-            $(this).val(text.substring(0, maxLength));
-        }
-    });
-})(jQuery);
-    
     
 (function($) {
     var gradients = [
