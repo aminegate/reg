@@ -2,6 +2,79 @@ button:focus {
     outline: none;
 }
 
+
+
+
+.wrapper {
+
+    margin: 30px auto;
+}
+
+.wrapper .search-input{
+    background: #fff;
+    width: 85%;
+    border-radius : 5px;
+    position: relative;
+    box-shadow: Opx 1px 5px 3px rgba(0,0,0,0. 12);
+    margin: 0px auto;
+}
+
+.search-input input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 1;
+    position: relative;
+    background: whitesmoke;
+}
+
+.search-input.active input{
+    border-radius : 5px 5px 0 0;
+}
+
+
+
+.search-input.active .autocom-box{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto ;
+}
+
+.autocom-box li {
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+}
+
+.search-input.active .autocom-box li{
+    display: block;
+}
+
+.autocom-box li:hover{
+    background: #efefef;
+}
+
+.search-input .icon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 39px;
+    width: 39px;
+    text-align: center;
+    line-height: 39px;
+    font-size: 17px;
+    color: #F7943D;
+    cursor: pointer;
+    z-index: 2;
+}
+
 .p12 a:first-of-type, .p12 a:last-of-type, .p12 .is-active{
   background-color: #31353D;
   color: #fff;
@@ -24,6 +97,8 @@ button:focus {
   display: inline-block;
   padding: 10px 18px;
   color: #222;
+    border-radius: 7px;
+    text-decoration: none;
 }
 
 
@@ -109,6 +184,8 @@ svg#Layer_1 {
     background: linear-gradient(90deg, rgba(247, 148, 61, 1) 50%, rgba(255, 187, 128, 1) 100%);
     height: 165px;
     position: relative;
+        border-radius: 10px 10px 0px 0px;
+    
 }
 
 .reglementFullName {
@@ -200,7 +277,8 @@ input#packetDate {
 .clientWrapper,
 .modeWrapper,
 .montantWrapper,
-.dueDateWrapper {
+.dueDateWrapper,
+.referenceWrapper{
     position: relative;
 }
 
@@ -235,14 +313,15 @@ input[type="submit"] {
 select#modeDeReg,
 #montantInput,
 #dueDate,
-#bdaymonth{
+#bdaymonth,
+#referencetInput{
     color: #6c757d;
     border: 3px solid #f1f1f1;
     text-align: left;
     display: block;
     width: 100%;
     height: 60px;
-    font-size: 25px;
+    font-size: 18px;
     padding: 10px;
     border-radius: 5px;
     background: white;
@@ -253,7 +332,8 @@ select#modeDeReg,
 .clientWrapper,
 .montantWrapper,
 .dueDateWrapper,
-.monthYearWrapper{
+.monthYearWrapper,
+.referenceWrapper{
     margin-bottom: 40px;
 }
 
@@ -607,11 +687,6 @@ body {
     left: 0px;
 }
 
-@media screen and (min-width: 768px) {
-    .page-wrapper.toggled .page-content {
-        padding-left: 300px;
-    }
-}
 
 /*----------------show sidebar button----------------*/
 #show-sidebar {
