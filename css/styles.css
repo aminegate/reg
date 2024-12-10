@@ -469,7 +469,7 @@ select#modeDeReg,
     display: block;
     width: 100%;
     height: 60px;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px;
     border-radius: 5px;
     background: white;
@@ -584,7 +584,7 @@ li.sidebar-dropdown a span {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-size: 18px;
+    font-size: 15px;
     z-index: 1;
     position: relative;
     background: whitesmoke;
