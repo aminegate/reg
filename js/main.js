@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     // Automatically close sidebar when screen width is <= 1024px
     $(window).resize(function () {
-        if ($(window).width() <= 1024) {
+        if ($(window).width() <= 992) {
             $(".page-wrapper").removeClass("toggled");
         }
     }).trigger('resize'); // Trigger resize to check on page load
